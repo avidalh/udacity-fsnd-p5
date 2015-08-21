@@ -28,26 +28,26 @@ You can visit http://avidalh.noip.me for the website deployed.
 
 ## 0. Configure a new host at https://www.noip.com
 In order to get a hostname.domainname in our machine we can sign up in any free service as www.no-ip.com, and register our IP with the desired hostname and any of the free domainname avaliable.
-In my case the I've associated the provided IP: 54.186.70.167 to the HOSTNAME.DOMAINNAME avidal.noip.com
+In my case the I've associated the provided IP: 54.186.70.167 to the HOSTNAME.DOMAINNAME avidalh.noip.com.
 
 
-## Launch Virtual Machine
+## 1. Launch Virtual Machine
 
 ## Instructions for SSH access to the instance
-1. Download Private Key below
+1. Download Private Key provided by Udacity NanoDegree
 2. Move the private key file into the folder `~/.ssh` (where ~ is your environment's home directory). So if you downloaded the file to the Downloads folder, just execute the following command in your terminal.
 	```mv ~/Downloads/udacity_key.rsa ~/.ssh/```
 3. Open your terminal and type in
 	```chmod 600 ~/.ssh/udacity_key.rsa```
 4. In your terminal, type in
-	```ssh -i ~/.ssh/udacity_key.rsa root@52.24.125.52```
-5. Development Environment Information
+	```ssh -i ~/.ssh/udacity_key.rsa root@avidalh.noip.me```
+5. Development Environment Information   *******************from here 
 
 	Public IP Address
 
 	52.24.125.52
 	
-	Private Key ( is not provided here. )
+	Private Key ( is not provided here. ) ************************to here
 
 ## Create a new user named grader
 1. `sudo adduser grader`
