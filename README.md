@@ -23,8 +23,8 @@ You can visit http://avidalh.noip.me for the website deployed.
 11. Install git, clone and setup your Catalog App project (from your GitHub repository from earlier in the Nanodegree program) so that it functions correctly when visiting your server’s IP address in a browser. Remember to set this up appropriately so that your .git directory is not publicly accessible via a browser!
 12. Install and configure munin
 13. Install and configure fail2ban
-14. install and configure unnatended-upgrades
-15. 
+14. Install and configure unnatended-upgrades
+
 
 ## 0. Configure a new host at https://www.noip.com
 In order to get a hostname.domainname in our machine we can sign up in any free service as www.no-ip.com, and register our IP with the desired hostname and any of the free domainname avaliable.
@@ -32,6 +32,7 @@ In my case the I've associated the provided IP: **54.186.70.167** to the HOSTNAM
 
 
 ## 1. Launch Virtual Machine
+
 
 ## Instructions for SSH access to the instance
 1. Download Private Key provided by Udacity NanoDegree
@@ -41,13 +42,13 @@ In my case the I've associated the provided IP: **54.186.70.167** to the HOSTNAM
 	```chmod 600 ~/.ssh/udacity_key.rsa```
 4. In your terminal, type in
 	```ssh -i ~/.ssh/udacity_key.rsa root@avidalh.noip.me```
-<!-- 5. Development Environment Information   *******************from here 
 
+<!-- 5. Development Environment Information
 	Public IP Address
 
-	52.24.125.52
+	54.186.70.167
 	
-	Private Key ( is not provided here. ) ************************to here
+	Private Key ( is not provided here. )
 -->
 
 ## Create a new user named grader
@@ -121,7 +122,7 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 5. Set a password for user catalog
 	
 	```
-	postgres=# ALTER ROLE catalog WITH PASSWORD 'password';
+	postgres=# ALTER ROLE catalog WITH PASSWORD 'catalog';
 	```
 	
 6. Give user "catalog" permission to "catalog" application database
@@ -203,8 +204,23 @@ Restart Apache `sudo service apache2 restart `
 At this moment we could load the site in any web browser at **http://avidalh.noip.me**
 
 
-### 
+## Install and configure Munin
+Once everything is its place and correctly working, I've decided install a system monitoring to supervise the linux box from any place using a browser. I've opted to use [Munin](http://munin-monitoring.org/) whis is an awesome monitoring package.
+The installation was relatively easy by following the package documentation and a great tuto at digital ocean. Here are the links:
+- http://munin-monitoring.org/wiki/Documentation
+- https://www.digitalocean.com/community/tutorials/how-to-install-munin-on-an-ubuntu-vps
+The monitoring systems web page is at http://avidalh.noip.me/munin/
 
+
+## Install and configure fail2ban
+To get safer system protected against repetitive ssh log in atempts I've installed fail2ban package.
+[**fail2ban**](http://www.fail2ban.org/) can automatically alter the iptables rules after a predefined number of unsuccessful login attempts.
+To install the package I've followed the package documentation and a fantastic tutorial at digital ocean.
+- http://www.fail2ban.org/wiki/index.php/MANUAL_0_8
+- https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04
+
+
+## Install and configure unnatended-upgrades
 
 ## References:
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
