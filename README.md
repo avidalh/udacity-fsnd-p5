@@ -28,7 +28,7 @@ You can visit http://avidalh.noip.me for the website deployed.
 
 ## 0. Configure a new host at https://www.noip.com
 In order to get a hostname.domainname in our machine we can sign up in any free service as www.no-ip.com, and register our IP with the desired hostname and any of the free domainname avaliable.
-In my case the I've associated the provided IP: 54.186.70.167 to the HOSTNAME.DOMAINNAME avidalh.noip.com.
+In my case the I've associated the provided IP: **54.186.70.167** to the HOSTNAME.DOMAINNAME **avidalh.noip.com**.
 
 
 ## 1. Launch Virtual Machine
@@ -41,19 +41,19 @@ In my case the I've associated the provided IP: 54.186.70.167 to the HOSTNAME.DO
 	```chmod 600 ~/.ssh/udacity_key.rsa```
 4. In your terminal, type in
 	```ssh -i ~/.ssh/udacity_key.rsa root@avidalh.noip.me```
-5. Development Environment Information   *******************from here 
+<!-- 5. Development Environment Information   *******************from here 
 
 	Public IP Address
 
 	52.24.125.52
 	
 	Private Key ( is not provided here. ) ************************to here
-
+-->
 ## Create a new user named grader
-1. `sudo adduser grader`
-2. `vim /etc/sudoers`
-3. `touch /etc/sudoers.d/grader`
-4. `vim /etc/sudoers.d/grader`, type in `grader ALL=(ALL:ALL) ALL`, save and quit
+	`sudo adduser grader`
+
+## Give the grader the permission to sudo
+	`gpasswd -a grader sudo`
 
 ## Set ssh login using keys
 1. generate keys on local machine using`ssh-keygen` ; then save the private key in `~/.ssh` on local machine
@@ -75,7 +75,7 @@ In my case the I've associated the provided IP: 54.186.70.167 to the HOSTNAME.DO
 3. reload SSH using `service ssh restart`
 4. now you can use ssh to login with the new user you created
 
-	`ssh -i [privateKeyFilename] grader@52.24.125.52`
+	`ssh -i [privateKeyFilename] grader@avidalh.noip.me`
 
 ## Update all currently installed packages
 
@@ -89,12 +89,13 @@ In my case the I've associated the provided IP: 54.186.70.167 to the HOSTNAME.DO
 ## Configure the Uncomplicated Firewall (UFW)
 
 Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123)
-
+```
 	sudo ufw allow 2200/tcp
 	sudo ufw allow 80/tcp
 	sudo ufw allow 123/udp
 	sudo ufw enable 
- 
+```
+
 ## Configure the local timezone to UTC
 1. Configure the time zone `sudo dpkg-reconfigure tzdata`
 2. It is already set to UTC.
