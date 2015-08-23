@@ -17,6 +17,7 @@ You can visit http://avidalh.noip.me for the website deployed.
 7. Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123)
 8. Configure the local timezone to UTC
 9. Install and configure Apache to serve a Python mod_wsgi application
+10. Install, setup, launch virtual environment
 10. Install and configure PostgreSQL:
 	- Do not allow remote connections
 	- Create a new user named catalog that has limited permissions to your catalog application database
@@ -43,13 +44,10 @@ In my case the I've associated the provided IP: **54.186.70.167** to the HOSTNAM
 4. In your terminal, type in
 	```ssh -i ~/.ssh/udacity_key.rsa root@avidalh.noip.me```
 
-<!-- 5. Development Environment Information
-	Public IP Address
-
-	54.186.70.167
-	
-	Private Key ( is not provided here. )
--->
+5. Development Environment Information
+	Public IP Address: 54.186.70.167
+	Site hostname.domainname: avidalh.noip.me
+	Private Key ( is not provided here for security reasons. )
 
 ## Create a new user named grader
 	`sudo adduser grader`
@@ -147,7 +145,9 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 6. Rename the project's name `sudo mv ./udacity-fsnd-p3 ./itemCatalog`
 7. Move to the inner FlaskApp directory using `cd itemCatalog`
 8. Rename `application.py` to `__init__.py` using `sudo mv application.py __init__.py`
-9. Edit `database_setup.py`, `__init__.py` and `populate.py`, changing `engine = create_engine('sqlite:///catalog.db')` to `engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
+9. Edit `database_setup.py`, `__init__.py` and `populate.py`, changing 
+	`engine = create_engine('sqlite:///catalog.db')` 
+to	`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
 10. Install pip `sudo apt-get install python-pip`
 11. Use pip to install dependencies `sudo pip install -r requirements.txt`
 12. Install psycopg2 `sudo apt-get -qqy install postgresql python-psycopg2`
