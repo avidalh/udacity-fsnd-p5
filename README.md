@@ -224,7 +224,7 @@ To install the package I've followed the package documentation and a fantastic t
 In order to get an unattended updated system the package unattended-upgrades was installed and configured to update the important packages every day. To successfully install and configure the package I followed the instructions from here:
 - https://wiki.debian.org/UnattendedUpgrades
 - https://help.ubuntu.com/14.04/serverguide/automatic-updates.html
-To check the updates are properly updated we can check the apt-get log at `/var/log/apt/history.log.
+To check the updates are properly updated we can check the apt-get log at `/var/log/apt/history.log`.
 
 ## References:
 - https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
