@@ -26,7 +26,7 @@ You can visit http://avidalh.noip.me for the website deployed.
 13. Install and configure fail2ban
 14. Install and configure unnatended-upgrades
 
-Task
+----
 
 ## 0. Configure a new host at https://www.noip.com
 In order to get a hostname.domainname in our machine we can sign up in any free service as www.no-ip.com, and register our IP with the desired hostname and any of the free domainname avaliable.
