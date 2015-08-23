@@ -141,25 +141,34 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 2. Use `cd /var/www` to move to the /var/www directory 
 3. Create the application directory `sudo mkdir itemCatalog`
 4. Move inside this directory using `cd itemCatalog`
-5. Clone the Catalog App to the virtual machine `git clone https://github.com/avidalh/udacity-fsnd-p3.git`
+5. Clone the itemCatalog App to the virtual machine `git clone https://github.com/avidalh/udacity-fsnd-p3.git`
 6. Rename the project's name `sudo mv ./udacity-fsnd-p3 ./itemCatalog`
 7. Move to the inner FlaskApp directory using `cd itemCatalog`
-8. Rename `application.py` to `__init__.py` using `sudo mv application.py __init__.py`
-9. Edit `database_setup.py`, `__init__.py` and `populate.py`, changing 
-	`engine = create_engine('sqlite:///catalog.db')` 
-to	`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
-10. Install pip `sudo apt-get install python-pip`
-11. Use pip to install dependencies `sudo pip install -r requirements.txt`
-12. Install psycopg2 `sudo apt-get -qqy install postgresql python-psycopg2`
-13. Create database schema `sudo python database_setup.py`
+8. Create python virtual enviroment
+	`cd catalog`
+	`sudo virtualenv env`
+	`source env/bin/activate`
+
+9. Rename `application.py` to `__init__.py` using `sudo mv application.py __init__.py`
+10. Edit `database_setup.py`, `__init__.py` and `populate.py`:
+changing	`engine = create_engine('sqlite:///catalog.db')` 
+to		`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
+11. Install pip `sudo apt-get install python-pip`
+12. Use pip to install dependencies `sudo pip install -r requirements.txt`
+13. Install psycopg2 `sudo apt-get -qqy install postgresql python-psycopg2`
+14. Create database schema `sudo python database_setup.py`
+15. Check if the application works correctly
+	`python __init__.py`
+	#Ctrl+c to exit if everything is ok
+	#exit virtual enviroment
+	`deactivate`
 
 ### Configure and Enable a New Virtual Host
 1. Create FlaskApp.conf to edit: `sudo nano /etc/apache2/sites-available/itemCatalog.conf`
 2. Add the following lines of code to the file to configure the virtual host. 
-	
 	```
 	<VirtualHost *:80>
-		ServerName 54.186.70.167
+		ServerName avidalh.noip.me
 		ServerAdmin admin@mywebsite.com
 		WSGIScriptAlias / /var/www/itemCatalog/itemCatalog.wsgi
 		<Directory /var/www/itemCatalog/itemCatalog/>
@@ -175,7 +184,6 @@ to	`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
 		LogLevel warn
 		CustomLog ${APACHE_LOG_DIR}/access.log combined
 	</VirtualHost>
-
 	```
 3. Enable the virtual host with the following command: `sudo a2ensite itemCatalog`
 
