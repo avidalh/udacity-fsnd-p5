@@ -89,6 +89,7 @@ In my case the I've associated the Udacity provided IP: **54.186.70.167** to the
 ## 7. Configure the Uncomplicated Firewall (UFW)
 
 Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123)
+
 ```
 	sudo ufw allow 2200/tcp
 	sudo ufw allow 80/tcp
@@ -145,19 +146,25 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 6. Rename the project's name `sudo mv ./udacity-fsnd-p3 ./itemCatalog`
 7. Move to the inner FlaskApp directory using `cd itemCatalog`
 8. Create python virtual enviroment
-	`cd catalog`
-	`sudo virtualenv env`
-	`source env/bin/activate`
+
+```
+	cd catalog
+	sudo virtualenv env
+	source env/bin/activate
+```
 
 9. Rename `application.py` to `__init__.py` using `sudo mv application.py __init__.py`
 10. Edit `database_setup.py`, `__init__.py` and `populate.py`:
+
 changing	`engine = create_engine('sqlite:///catalog.db')` 
 to		`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
+
 11. Install pip `sudo apt-get install python-pip`
 12. Use pip to install dependencies `sudo pip install -r requirements.txt`
 13. Install psycopg2 `sudo apt-get -qqy install postgresql python-psycopg2`
 14. Create database schema `sudo python database_setup.py`
 15. Check if the application works correctly
+
 	`python __init__.py`
 	#Ctrl+c to exit if everything is ok
 	#exit virtual enviroment
@@ -166,6 +173,7 @@ to		`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
 ### Configure and Enable a New Virtual Host
 1. Create FlaskApp.conf to edit: `sudo nano /etc/apache2/sites-available/itemCatalog.conf`
 2. Add the following lines of code to the file to configure the virtual host. 
+
 	```
 	<VirtualHost *:80>
 		ServerName avidalh.noip.me
@@ -185,6 +193,7 @@ to		`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
 		CustomLog ${APACHE_LOG_DIR}/access.log combined
 	</VirtualHost>
 	```
+
 3. Enable the virtual host with the following command: `sudo a2ensite itemCatalog`
 
 ### Create the .wsgi File
