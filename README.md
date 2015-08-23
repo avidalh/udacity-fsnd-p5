@@ -221,6 +221,10 @@ To install the package I've followed the package documentation and a fantastic t
 
 
 ## Install and configure unnatended-upgrades
+In order to get an unattended updated system the package unattended-upgrades was isntalled and configured. 
+
+
+
 
 ## References:
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
