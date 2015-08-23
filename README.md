@@ -4,11 +4,11 @@ This is the fifth project for "Full Stack Web Developer Nanodegree" on Udacity.
 
 In this project, a Linux virtual machine needs to be configurated to support the Item Catalog website.
 
-You can visit http://avidalh.noip.me for the website deployed.
+You can visit http://avidalh.noip.me for review the deployed website.
 
 ## Tasks
-0. Configure a new host at https://www.noip.com 
-1. Launch your Virtual Machine with your Udacity account
+0. Launch your Virtual Machine with your Udacity account
+1. Configure a new host at https://www.noip.com
 2. Follow the instructions provided to SSH into your server
 3. Create a new user named grader
 4. Give the grader the permission to sudo
@@ -28,13 +28,12 @@ You can visit http://avidalh.noip.me for the website deployed.
 
 ----
 
-## 0. Configure a new host at https://www.noip.com
-In order to get a hostname.domainname in our machine we can sign up in any free service as www.no-ip.com, and register our IP with the desired hostname and any of the free domainname avaliable.
-In my case the I've associated the provided IP: **54.186.70.167** to the HOSTNAME.DOMAINNAME **avidalh.noip.com**.
+## 0. Launch Virtual Machine
+The Virtual Machine was launched by following the instructions at https://www.udacity.com/account#!/development_environment.
 
-
-## 1. Launch Virtual Machine
-
+## 1. Configure a new host at https://www.noip.com
+In order to get a hostname.domainname in our machine we can sign up in any free service as www.no-ip.com, and register our IP with the desired hostname and any of the free domainnames avaliable.
+In my case the I've associated the Udacity provided IP: **54.186.70.167** to the HOSTNAME.DOMAINNAME **avidalh.noip.com**.
 
 ## 2. Instructions for SSH access to the instance
 1. Download Private Key provided by Udacity NanoDegree
