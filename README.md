@@ -166,8 +166,8 @@ to		`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
 15. Check if the application works correctly
 
 	`python __init__.py`
-	#Ctrl+c to exit if everything is ok
-	#exit virtual enviroment
+	Ctrl+c to exit if everything is ok
+	exit virtual enviroment
 	`deactivate`
 
 ### Configure and Enable a New Virtual Host
@@ -203,6 +203,7 @@ to		`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
 	cd /var/www/itemCatalog
 	sudo nano itemCatalog.wsgi 
 	```
+	
 2. Add the following lines of code to the flaskapp.wsgi file:
 	
 	```
