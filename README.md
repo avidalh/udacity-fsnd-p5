@@ -7,7 +7,7 @@ In this project, a Linux virtual machine needs to be configurated to support the
 You can visit http://avidalh.noip.me for the website deployed.
 
 ## Tasks
-0. [Configure a new host](## 0. Configure a new host at https://www.noip.com) at https://www.noip.com
+0. Configure a new host at https://www.noip.com 
 1. Launch your Virtual Machine with your Udacity account
 2. Follow the instructions provided to SSH into your server
 3. Create a new user named grader
@@ -26,6 +26,7 @@ You can visit http://avidalh.noip.me for the website deployed.
 13. Install and configure fail2ban
 14. Install and configure unnatended-upgrades
 
+Task
 
 ## 0. Configure a new host at https://www.noip.com
 In order to get a hostname.domainname in our machine we can sign up in any free service as www.no-ip.com, and register our IP with the desired hostname and any of the free domainname avaliable.
@@ -35,7 +36,7 @@ In my case the I've associated the provided IP: **54.186.70.167** to the HOSTNAM
 ## 1. Launch Virtual Machine
 
 
-## Instructions for SSH access to the instance
+## 2. Instructions for SSH access to the instance
 1. Download Private Key provided by Udacity NanoDegree
 2. Move the private key file into the folder `~/.ssh` (where ~ is your environment's home directory). So if you downloaded the file to the Downloads folder, just execute the following command in your terminal.
 	```mv ~/Downloads/udacity_key.rsa ~/.ssh/```
@@ -49,13 +50,13 @@ In my case the I've associated the provided IP: **54.186.70.167** to the HOSTNAM
 	Site hostname.domainname: avidalh.noip.me
 	Private Key ( is not provided here for security reasons. )
 
-## Create a new user named grader
+## 3. Create a new user named grader
 	`sudo adduser grader`
 
-## Give the grader the permission to sudo
+## 4. Give the grader the permission to sudo
 	`gpasswd -a grader sudo`
 
-## Set ssh login using keys
+### Set ssh login using keys
 1. generate keys on local machine using`ssh-keygen` ; then save the private key in `~/.ssh` on local machine
 2. deploy public key on developement enviroment
 
@@ -77,16 +78,16 @@ In my case the I've associated the provided IP: **54.186.70.167** to the HOSTNAM
 
 	`ssh -i [privateKeyFilename] grader@avidalh.noip.me`
 
-## Update all currently installed packages
+## 5. Update all currently installed packages
 
 	sudo apt-get update
 	sudo apt-get upgrade
 
-## Change the SSH port from 22 to 2200
+## 6. Change the SSH port from 22 to 2200
 1. Use `sudo vim /etc/ssh/sshd_config` and then change Port 22 to Port 2200 , save & quit.
 2. Reload SSH using `sudo service ssh restart`
 
-## Configure the Uncomplicated Firewall (UFW)
+## 7. Configure the Uncomplicated Firewall (UFW)
 
 Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123)
 ```
@@ -96,16 +97,16 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 	sudo ufw enable 
 ```
 
-## Configure the local timezone to UTC
+## 8. Configure the local timezone to UTC
 1. Configure the time zone `sudo dpkg-reconfigure tzdata`
 2. It is already set to UTC.
 
-## Install and configure Apache to serve a Python mod_wsgi application
+## 9. Install and configure Apache to serve a Python mod_wsgi application
 1. Install Apache `sudo apt-get install apache2`
 2. Install mod_wsgi `sudo apt-get install python-setuptools libapache2-mod-wsgi`
 3. Restart Apache `sudo service apache2 restart`
 
-## Install and configure PostgreSQL
+## 10. Install and configure PostgreSQL
 1. Install PostgreSQL `sudo apt-get install postgresql`
 2. Check if no remote connections are allowed `sudo vim /etc/postgresql/9.3/main/pg_hba.conf`
 3. Login as user "postgres" `sudo su - postgres`
@@ -136,7 +137,7 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 	exit
 	```
  
-## Install git, clone and setup your Catalog App project.
+## 11. Install git, clone and setup your Catalog App project.
 1. Install Git using `sudo apt-get install git`
 2. Use `cd /var/www` to move to the /var/www directory 
 3. Create the application directory `sudo mkdir itemCatalog`
@@ -153,7 +154,7 @@ to	`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
 12. Install psycopg2 `sudo apt-get -qqy install postgresql python-psycopg2`
 13. Create database schema `sudo python database_setup.py`
 
-## Configure and Enable a New Virtual Host
+### Configure and Enable a New Virtual Host
 1. Create FlaskApp.conf to edit: `sudo nano /etc/apache2/sites-available/itemCatalog.conf`
 2. Add the following lines of code to the file to configure the virtual host. 
 	
@@ -179,7 +180,7 @@ to	`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
 	```
 3. Enable the virtual host with the following command: `sudo a2ensite itemCatalog`
 
-## Create the .wsgi File
+### Create the .wsgi File
 1. Create the .wsgi File under /var/www/itemCatalog: 
 	
 	```
@@ -199,12 +200,12 @@ to	`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
 	application.secret_key = 'super_secret_key'
 	```
 
-## Restart Apache
+### Restart Apache
 Restart Apache `sudo service apache2 restart `
 At this moment we could load the site in any web browser at **http://avidalh.noip.me**
 
 
-## Install and configure Munin
+## 12. Install and configure Munin
 Once everything is its place and correctly working, I've decided install a system monitoring to supervise the linux box from any place using a browser. I've opted to use [Munin](http://munin-monitoring.org/) whis is an awesome monitoring package.
 The installation was relatively easy by following the package documentation and a great tuto at digital ocean. Here are the links:
 - http://munin-monitoring.org/wiki/Documentation
@@ -212,7 +213,7 @@ The installation was relatively easy by following the package documentation and 
 The monitoring systems web page is at http://avidalh.noip.me/munin/
 
 
-## Install and configure fail2ban
+## 13. Install and configure fail2ban
 To get safer system protected against repetitive ssh log in atempts I've installed fail2ban package.
 [**fail2ban**](http://www.fail2ban.org/) can automatically alter the iptables rules after a predefined number of unsuccessful login attempts.
 To install the package I've followed the package documentation and a fantastic tutorial at digital ocean.
@@ -220,7 +221,7 @@ To install the package I've followed the package documentation and a fantastic t
 - https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04
 
 
-## Install and configure unnatended-upgrades
+## 14. Install and configure unnatended-upgrades
 In order to get an unattended updated system the package unattended-upgrades was installed and configured to update the important packages every day. To successfully install and configure the package I followed the instructions from here:
 - https://wiki.debian.org/UnattendedUpgrades
 - https://help.ubuntu.com/14.04/serverguide/automatic-updates.html
