@@ -234,3 +234,10 @@ To check the updates are properly updated we can check the apt-get log at `/var/
 - https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04
 - http://munin-monitoring.org/wiki/Documentation
 - https://www.digitalocean.com/community/tutorials/how-to-install-munin-on-an-ubuntu-vps
+
+
+- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
+- [x] list syntax required (any unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
+- 
