@@ -227,27 +227,35 @@ At this moment we could load the site in any web browser at **http://avidalh.noi
 
 ## 12. Install and configure Munin
 Once everything is its place and correctly working, I've decided install a system monitoring to supervise the linux box from any place using a browser. I've opted to use [Munin](http://munin-monitoring.org/) whis is an awesome monitoring package.
+
 The installation was relatively easy by following the package documentation and a great tuto at digital ocean. Here are the links:
+
 - http://munin-monitoring.org/wiki/Documentation
 - https://www.digitalocean.com/community/tutorials/how-to-install-munin-on-an-ubuntu-vps
+
 The monitoring systems web page is at http://avidalh.noip.me/munin/
 
 
 ## 13. Install and configure fail2ban
 To get safer system protected against repetitive ssh log in atempts I've installed fail2ban package.
 [**fail2ban**](http://www.fail2ban.org/) can automatically alter the iptables rules after a predefined number of unsuccessful login attempts.
+
 To install the package I've followed the package documentation and a fantastic tutorial at digital ocean.
+
 - http://www.fail2ban.org/wiki/index.php/MANUAL_0_8
 - https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04
 
 
 ## 14. Install and configure unnatended-upgrades
 In order to get an unattended updated system the package unattended-upgrades was installed and configured to update the important packages every day. To successfully install and configure the package I followed the instructions from here:
+
 - https://wiki.debian.org/UnattendedUpgrades
 - https://help.ubuntu.com/14.04/serverguide/automatic-updates.html
+
 To check the updates are properly updated we can check the apt-get log at `/var/log/apt/history.log`.
 
 ## References:
+
 - https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
 - https://help.ubuntu.com/14.04/serverguide/automatic-updates.html
 - https://wiki.debian.org/UnattendedUpgrades
