@@ -7,7 +7,7 @@ In this project, a Linux virtual machine needs to be configurated to support the
 You can visit http://avidalh.noip.me for the website deployed.
 
 ## Tasks
-[0. Configure a new host at](#) https://www.noip.com
+0. Configure a new host at https://www.noip.com
 1. Launch your Virtual Machine with your Udacity account
 2. Follow the instructions provided to SSH into your server
 3. Create a new user named grader
