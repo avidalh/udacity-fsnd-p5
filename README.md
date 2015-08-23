@@ -166,8 +166,11 @@ to		`engine = create_engine('postgresql://catalog:catalog@localhost/catalog')`
 15. Check if the application works correctly
 
 	`python __init__.py`
+	
 	Ctrl+c to exit if everything is ok
+	
 	exit virtual enviroment
+	
 	`deactivate`
 
 ### Configure and Enable a New Virtual Host
